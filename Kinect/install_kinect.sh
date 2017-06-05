@@ -10,11 +10,12 @@ sudo apt-get install  freeglut3-dev g++
 
 
 libusb(){
+cd $current_folder
 git clone https://github.com/libusb/libusb.git
 cd libusb
 git checkout tags/v1.0.9
 git checkout -b v1.0.9	
-autogen.sh
+./autogen.sh
 ./configure --prefix=/usr --disable-static
 make
 sudo make install
@@ -25,6 +26,7 @@ sudo make install
 # Installing Openni
 ############################
 OpenNI() {
+cd $current_folder
 git clone https://github.com/OpenNI/OpenNI.git
 cd  OpenNI
 git checkout tags/Unstable-1.5.8.5
@@ -42,6 +44,7 @@ sudo ./install.sh -i
 #  Installing Avin2 SensorSkin
 ######################################
 SensorSkin() {
+cd $current_folder
 git clone https://github.com/avin2/SensorKinect.git
 cd  SensorKinect
 
@@ -54,6 +57,7 @@ sudo ./install.sh -i
 }
 
 NITE() {
+cd $current_folder
 wget http://dahoo.fr/dahoo_rsc/Ressources/openNi/NiTE%20v1.5.2.23/NITE-Bin-Linux-x64-v1.5.2.23.tar.zip
 unzip NITE-Bin-Linux-x64-v1.5.2.23.tar.zip
 tar xjvf NITE-Bin-Linux-x64-v1.5.2.23.tar.bz2
@@ -68,9 +72,9 @@ sudo ./install.sh
 
 
 libusb
-#OpenNI
-#SensorSkin
-#NITE
+OpenNI
+SensorSkin
+NITE
 
 
 sudo modprobe -r gspca_kinect
